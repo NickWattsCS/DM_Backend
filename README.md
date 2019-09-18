@@ -11,7 +11,7 @@ To login: ```/rest-auth/login```
 
 requires body:
 
-```{"email": "lucas", "password": "puppies"}```
+```{"email": "lucas@albano.us", "password": "puppies"}```
 
 Register: ```/rest-auth/register```
 
