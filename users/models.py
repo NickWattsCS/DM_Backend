@@ -14,19 +14,20 @@ class User(models.Model):
 		ordering = ['joined']
 
 class Admin(User):
-
+	points = models.IntegerField(blank=True, default=0)
+	mon_raised = models.IntegerField(blank=True, default=0)
 class Staff(User):
 	department = models.CharField(max_length=50,default='')
-	points = models.IntegerField(max_length=10,blank=True,default=0)
-	mon_raised = models.IntegerField(max_length=20,blank=True,default=0)
+	points = models.IntegerField(blank=True,default=0)
+	mon_raised = models.IntegerField(blank=True,default=0)
 
 class Dancer(User):
-	points = models.IntegerField(max_length=10,blank=True,default=0)
-	mon_raised = models.IntegerField(max_length=20, blank=True,default=0)
+	points = models.IntegerField(blank=True,default=0)
+	mon_raised = models.IntegerField(blank=True,default=0)
 
 class Guest(User):
-	first_name = models.CharField(null=True)
-	last_name = models.CharField(null=True)
+	first_name = models.CharField(max_length = 50, null=True)
+	last_name = models.CharField(max_length = 50, null=True)
 	joined = models.DateField(null=True)
-	team = models.CharField(null=True)
+	team = models.CharField(max_length = 50, null=True)
 
