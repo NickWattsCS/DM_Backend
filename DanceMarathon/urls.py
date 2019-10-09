@@ -23,5 +23,6 @@ router.register(r'events', EventViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include(router.urls))
+    path('', include(router.urls)),
+    path('', include(users.urls)),
 ]
