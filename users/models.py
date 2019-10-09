@@ -16,6 +16,7 @@ class User(models.Model):
 class Admin(User):
 	points = models.IntegerField(blank=True, default=0)
 	mon_raised = models.IntegerField(blank=True, default=0)
+
 class Staff(User):
 	department = models.CharField(max_length=50,default='')
 	points = models.IntegerField(blank=True,default=0)
