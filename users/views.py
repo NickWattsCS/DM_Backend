@@ -22,7 +22,7 @@ def user_list(request):
 		return JsonResponse(serializer.errors, status=400)
 
 @crsf_exempt
-def user_detail:
+def user_detail(request, pk):
 	try:
 		user = User.objects.get(pk = pk)
 	except User.DoesNotExist:
@@ -42,3 +42,4 @@ def user_detail:
 	elif request.method == "DELETE":
 		user.delete()
 		return HttpResponse(status = 204)
+
