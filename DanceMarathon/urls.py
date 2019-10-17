@@ -17,12 +17,21 @@ from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
 from events.views import EventViewSet
+from users import users.views
 
 router = routers.SimpleRouter()
 router.register(r'events', EventViewSet)
+router.register(r'users', UserViewSet)
+router.register(r'dancers', DancerViewSet)
+router.register(r'staff', StaffViewSet)
+router.register(r'guests', GuestViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include(router.urls)),
-    path('', include(users.urls)),
+    path('events/', EventViewSet),
+    path('users/', include('users.urls')),
+    path('users/dancers', users.views.DancerViewSet),
+    path('users/staff', users.views.StaffViewSet),
+    path('users/guests', users.views.GuestViewSet),
 ]
