@@ -1,27 +1,26 @@
 from rest_framework import serializers
-from users.models import User,Dancer,Staff,Admin,Guest
+from users.models import DanceUser,Dancer,DanceStaff,DanceGuest
 
-class UserSerializer(serializers.ModelSerializer):
+class DanceUserSerializer(serializers.ModelSerializer):
 	class Meta:
-		model = User
-		fields = ['id', 'first_name', 'last_name', 'joined', 'team']
+		model = DanceUser
+		fields = ["id", "first_name", "last_name", "email", "date_joined", "last_login", "organization", "mon_raised"]
 
 class DancerSerializer(serializers.ModelSerializer):
 	class Meta:
 		model = Dancer
-		fields = ['id', 'first_name', 'last_name', 'joined', 'team', 'points', 'mon_raised']
+		fields = ["id", "first_name", "last_name", "email", "date_joined", "last_login", "organization", "mon_raised"]
 
-class StaffSerializer(serializers.ModelSerializer):
+class DanceStaffSerializer(serializers.ModelSerializer):
 	class Meta:
-		model = Staff
-		fields = ['id', 'first_name', 'last_name', 'joined', 'team', 'points', 'mon_raised', 'department']
+		model = DanceStaff
+		fields = ["id", "first_name", "last_name", "email", "date_joined", "last_login", "organization", "mon_raised"]
+"""
 
-class AdminSerializer(serializers.ModelSerializer):
-	class Meta:
-		model = Admin
-		fields = ['id', 'first_name', 'last_name', 'joined', 'team', 'points', 'mon_raised']
+I will work on this model after I get the others to work
 
-class GuestSerializer(UserSerializer):
+class DanceGuestSerializer(serializers.ModelSerializers):
 	class Meta:
-		model = Guest
-		fields = ['id', 'joined']
+		model = DanceGuest
+		fields = ["date_joined"]
+"""
