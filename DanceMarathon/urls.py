@@ -25,6 +25,7 @@ router.register(r'users', UserViewSet)
 router.register(r'dancers', DancerViewSet)
 router.register(r'staff', StaffViewSet)
 router.register(r'guests', GuestViewSet)
+router.register(r'groups', GroupsViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -34,4 +35,5 @@ urlpatterns = [
     path('users/dancers', users.views.DancerViewSet),
     path('users/staff', users.views.StaffViewSet),
     path('users/guests', users.views.GuestViewSet),
+    path('groups/', GroupsViewSet),
 ]
