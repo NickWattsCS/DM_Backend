@@ -1,4 +1,5 @@
 import datetime
+from groups.models import DanceGroup
 from django.db import models
 from django.contrib.auth.models import User
 # Create your models here.
@@ -13,7 +14,7 @@ position: which states the user's rank in the hierachy of DM members
 events: contains all events the user has signed up for
 """
 class DanceUser(User):
-	team = models.ForeignKey(Group, null = True, blank = True, on_delete = models.CASCADE)
+	team = models.ForeignKey(DanceGroup, null = True, blank = True, on_delete = models.CASCADE)
 	position = models.CharField(max_length=15, default='Dancer')
 	events = models.ManyToManyField(Event)
 	shift = models.IntegerField(blank = True, default = 0)

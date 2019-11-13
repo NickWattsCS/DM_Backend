@@ -1,12 +1,14 @@
+from django.contrib.auth.models import Group
 from django.db import models
+from users.models import DanceUser
 """
 Organization name and total points
 """
-class Groups(models.Model):
+class DanceGroup(Group):
     name = models.CharField(max_length = 100)
     mon_raised = models.IntegerField(default=0)
     points = models.IntegerField(default=0)
-    users = models.ManyToManyField(DanceUser, blank=True)
+    users = models.ManyToManyField(DanceUser)
 
     class Meta:
         ordering = ('name',)
