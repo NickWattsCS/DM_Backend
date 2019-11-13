@@ -4,6 +4,6 @@ from users.serializers import *
 # Create your views here
 
 class DanceUserViewSet(viewsets.ModelViewSet):
-	queryset = User.objects.all().order_by("last_name")
-	serializer_class = UserSerializer
+	queryset = DanceUser.objects.all().order_by("id")
+	serializer_class = DanceUserSerializer
 

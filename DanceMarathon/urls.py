@@ -18,22 +18,16 @@ from django.urls import path, include
 from rest_framework import routers
 from events.views import EventViewSet
 from users import users.views
+from groups import groups.views
 
 router = routers.SimpleRouter()
 router.register(r'events', EventViewSet)
-router.register(r'users', UserViewSet)
-router.register(r'dancers', DancerViewSet)
-router.register(r'staff', StaffViewSet)
-router.register(r'guests', GuestViewSet)
-router.register(r'groups', GroupsViewSet)
+router.register(r'users', DanceUserViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include(router.urls)),
     path('events/', EventViewSet),
-    path('users/', include('users.urls')),
-    path('users/dancers', users.views.DancerViewSet),
-    path('users/staff', users.views.StaffViewSet),
-    path('users/guests', users.views.GuestViewSet),
+    path('users/', DanceUserViewSet),
     path('groups/', GroupsViewSet),
 ]
