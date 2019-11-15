@@ -1,6 +1,6 @@
 from django.contrib.auth.models import Group
 from django.db import models
-from users.models import DanceUser
+from users.models import *
 """
 Organization name and total points
 """

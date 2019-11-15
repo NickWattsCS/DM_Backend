@@ -5,7 +5,6 @@ from django.contrib.auth.models import User
 # Create your models here.
 
 
-
 """
 DanceUser is the class from which its children inherit the data members:
 team: which uses Group as a foreign key to store the team's name
@@ -19,11 +18,3 @@ class DanceUser(User):
 	events = models.ManyToManyField(Event)
 	shift = models.IntegerField(blank = True, default = 0)
 
-	def __str__(self):
-		return (first_name + " " + last_name)
-
-	def get_position(self):
-		return self.position
-
-	def get_shift(self):
-		return self.shift
