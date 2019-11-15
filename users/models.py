@@ -15,6 +15,8 @@ events: contains all events the user has signed up for
 class DanceUser(User):
 	team = models.ForeignKey(DanceGroup, null = True, blank = True, on_delete = models.CASCADE)
 	position = models.CharField(max_length=15, default='Dancer')
-	events = models.ManyToManyField(Event)
+	events = models.ManyToManyField(Event, related_name='user_list', null=True)
 	shift = models.IntegerField(blank = True, default = 0)
 
+	def __str__(self):
+		return (self.first_name + " " + self.last_name)
