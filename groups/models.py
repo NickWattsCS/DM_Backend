@@ -9,5 +9,5 @@ class DanceGroup(models.Model):
     points = models.IntegerField(default=0)
     users = models.ManyToManyField(DanceUser)
 
-	class Meta:
-		ordering = ('name',)
+    class Meta:
+        ordering = ('name',)
