@@ -17,8 +17,8 @@ from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
 from events.views import EventViewSet
-from users import users.views
-from groups import groups.views
+from users.views import DanceUserViewSet
+from groups.views import GroupViewSet
 
 router = routers.SimpleRouter()
 router.register(r'events', EventViewSet)
