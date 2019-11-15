@@ -29,5 +29,5 @@ urlpatterns = [
     path('', include(router.urls)),
     path('events/', EventViewSet),
     path('users/', DanceUserViewSet),
-    path('groups/', GroupsViewSet),
+    path('groups/', GroupViewSet),
 ]
