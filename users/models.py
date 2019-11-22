@@ -1,4 +1,3 @@
-import datetime
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 from events.models import Event
@@ -20,6 +19,7 @@ internal_team: the department in which the user belongs if they're not a Dancer.
 """
 class DanceUser(AbstractUser):
 	organization = models.ForeignKey(DanceGroup, related_name="group", null = True, on_delete=models.CASCADE)
+	mon_raised = models.IntegerField(default = 0)
 	position = models.CharField(max_length=15, null = True)
 	events = models.ManyToManyField(Event, related_name="user_list", null = True)
 	points = models.IntegerField(default = 0)
@@ -32,3 +32,16 @@ class DanceUser(AbstractUser):
 			self.internal_team = i_team
 
 """
+
+"""
+This function will return the money raised by an organization, a team, an internal_team,
+	a group of users, or the individual user based on the provided context and name.
+So far this is just a skeleton with details to be added later.
+"""
+	def getMoneyRaised(self, context, name)
+		if context == "organization":
+		elif context == "team":
+		elif context == "internal_team":
+		elif context == "users":
+		else:
+			return self.mon_raised
