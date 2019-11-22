@@ -32,7 +32,6 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'events.apps.EventsConfig',
-    'users.apps.UsersConfig',
     'groups.apps.GroupsConfig',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -42,7 +41,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     #'events',
-    #3rd party apps
+    'users'
+    #3rd party app
 ]
 
 MIDDLEWARE = [
@@ -105,8 +105,8 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-AUTH_USER_MODEL = users.DanceUser
-AUTH_GROUP_MODEL = groups.DanceGroup
+AUTH_USER_MODEL = 'users.DanceUser'
+#AUTH_GROUP_MODEL = groups.DanceGroup
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/

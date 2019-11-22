@@ -2,6 +2,7 @@ import datetime
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 from events.models import Event
+from groups.models import DanceGroup
 # Create your models here.
 
 
@@ -13,9 +14,7 @@ position: which states the user's rank in the hierachy of DM members
 events: contains all events the user has signed up for
 """
 class DanceUser(AbstractUser):
-	#team = models.ForeignKey(DanceGroup, null = True, blank = True, on_delete = models.CASCADE)
+	#team = models.ForeignKey(DanceGroup, related_name="group", blank=True, on_delete=models.CASCADE)
 	position = models.CharField(max_length=15, default='Dancer')
-	events = models.ManyToManyField(Event, related_name='user_list', null=True)
 	events = models.ManyToManyField(Event, related_name="user_list", blank=True)
 	shift = models.IntegerField(blank = True, default = 0)
-
