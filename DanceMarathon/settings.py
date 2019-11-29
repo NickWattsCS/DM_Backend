@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'teams.apps.TeamsConfig',
     'events.apps.EventsConfig',
     'groups.apps.GroupsConfig',
     'django.contrib.admin',
@@ -40,8 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    #'events',
-    'users'
+    'users.apps.UsersConfig',
     #3rd party app
 ]
 
@@ -106,6 +106,7 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 AUTH_USER_MODEL = 'users.DanceUser'
+AUTH_TEAM_MODEL = 'teams.Team'
 #AUTH_GROUP_MODEL = groups.DanceGroup
 
 # Internationalization
