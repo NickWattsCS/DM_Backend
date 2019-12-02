@@ -26,12 +26,12 @@ class DanceUser(AbstractUser):
 	points = models.IntegerField(default = 0)
 	shift = models.IntegerField(null = True)
 	team = models.ForeignKey(Team, related_name="user_team", null = True, on_delete = models.CASCADE)
-	internal_team = models.CharField(max_length = 30, null = True)
+	internal_team = models.CharField(max_length = 30, null = True) if position != "Dancer" else models.CharField(max_length = 30, default = "N/A")
 
 	def __str__():
 		return self.first_name + " " + self.last_name
 
-	def getMoney(self, context, name = "", list = list()):
+	def getMoney(self):
 		return self.mon_raised
 					
 

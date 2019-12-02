@@ -19,15 +19,15 @@ from rest_framework import routers
 from events.views import EventViewSet
 from users.views import DanceUserViewSet
 from groups.views import GroupViewSet
+from teams.views import TeamViewSet
 
-router = routers.SimpleRouter()
-router.register(r'events', EventViewSet)
-router.register(r'users', DanceUserViewSet)
+jimmy = routers.SimpleRouter()
+jimmy.register(r'events', EventViewSet)
+jimmy.register(r'users', DanceUserViewSet)
+jimmy.register(r'groups', GroupViewSet)
+jimmy.register(r'teams', TeamViewSet)
 
 urlpatterns = [
+    path("", include(jimmy.urls)),
     path('admin/', admin.site.urls),
-    path('', include(router.urls)),
-    path('events/', EventViewSet),
-    path('users/', DanceUserViewSet),
-    path('groups/', GroupViewSet),
 ]

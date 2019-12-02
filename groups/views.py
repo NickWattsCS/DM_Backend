@@ -3,5 +3,5 @@ from .models import DanceGroup
 from .serializers import GroupSerializer
 
 class GroupViewSet(viewsets.ModelViewSet):
-    queryset = DanceGroup.objects.all().order_by("name")
+    queryset = DanceGroup.objects.all()
     serializer_class = GroupSerializer
