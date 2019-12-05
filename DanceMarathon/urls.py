@@ -17,9 +17,11 @@ from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
 from events.views import EventViewSet
-from users.views import DanceUserViewSet
+from users.views import DanceUserViewSet, CustomAuthToken
 from groups.views import GroupViewSet
 from teams.views import TeamViewSet
+from rest_framework.authtoken.views import obtain_auth_token
+
 
 jimmy = routers.SimpleRouter()
 jimmy.register(r'events', EventViewSet)
@@ -30,4 +32,8 @@ jimmy.register(r'teams', TeamViewSet)
 urlpatterns = [
     path("", include(jimmy.urls)),
     path('admin/', admin.site.urls),
+    path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+    path('rest-auth/', include('rest_auth.urls')),
+    path('api-token-auth/', CustomAuthToken.as_view()),
+    path('rest-auth/registration/', include('rest_auth.registration.urls')),
 ]
