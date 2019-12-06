@@ -6,6 +6,7 @@ Leaderboard for actual app
 class BarGraph(models.Model):
     name = models.CharField(max_length = 100, default = 'Group')
     amount = models.IntegerField(default = 0)
+    position = models.IntegerField(default = 0)
     horizontal = models.BooleanField(default = True)
 
     class Meta:
