@@ -28,8 +28,8 @@ class DanceUser(AbstractUser):
 	team = models.ForeignKey(Team, related_name="user_team", null = True, on_delete = models.CASCADE)
 	internal_team = models.CharField(max_length = 30, null = True) if position != "Dancer" else models.CharField(max_length = 30, default = "N/A")
 
-	def __str__():
-		return self.first_name + " " + self.last_name
+	def __str__(self):
+		return str(self.first_name + " " + self.last_name)
 
 	def getMoney(self):
 		return self.mon_raised
@@ -44,3 +44,7 @@ class DanceUser(AbstractUser):
 	def addInternalTeam(self, i_team):
 		if self.position != "Dancer":
 			self.internal_team = i_team
+
+	def setName(self, fname, lname):
+		self.first_name = fname
+		self.last_name = lname
