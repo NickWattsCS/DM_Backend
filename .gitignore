@@ -1,8 +1,8 @@
 *.sqlite3
 # Byte-compiled / optimized / DLL files
-__pycache__/
-*.py
-*$py.class
+#__pycache__/
+#*.py
+#*$py.class
 
 # C extensions
 *.so
