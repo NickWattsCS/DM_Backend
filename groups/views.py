@@ -6,12 +6,12 @@ from .models import DanceGroup
 from .serializers import GroupSerializer
 
 class GroupViewSet(viewsets.ModelViewSet):
-    queryset = DanceGroup.objects.all()
+    queryset = DanceGroup.objects.all().order_by("mon_raised")
     serializer_class = GroupSerializer
 
 def export_DanceGroups_csv(request):
     response = HttpResponse(content_type='text/csv')
-    response['Content-Disposition'] = 'attachment; filename="DanceGroups.csv"'
+    response['Content-Disposition'] = 'attachment; filename="DM_DanceGroups.csv"'
 
     writer = csv.writer(response)
     writer.writerow(['Group', 'Funds Raised', 'Points'])
