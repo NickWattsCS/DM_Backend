@@ -1,5 +1,3 @@
-from django.contrib import admin
-from import_export.admin import ImportExportModelAdmin
 import csv
 
 from django.shortcuts import render
@@ -14,6 +12,3 @@ class TeamViewSet(viewsets.ModelViewSet):
 	queryset = Team.objects.all().order_by("child")
 	serializer_class = TeamSerializer
 
-@admin.register(Team)
-class ViewGroups(ImportExportModelAdmin):
-    pass

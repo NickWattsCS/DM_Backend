@@ -49,7 +49,6 @@ INSTALLED_APPS = [
     'events.apps.EventsConfig',
     'teams.apps.TeamsConfig',
     'groups.apps.GroupsConfig',
-    'import_export'
     #3rd party app
 ]
 SITE_ID = 1

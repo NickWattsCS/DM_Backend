@@ -1,3 +1,5 @@
+import csv
+from django.http import HttpResponse
 from rest_framework import viewsets
 from rest_framework.authtoken.views import ObtainAuthToken
 from users.models import *
@@ -16,6 +18,16 @@ def mon_raised(request):
 		sum = sum + person.getMoney()
 	return HttpResponse("<html><h1>All users have raised %s in total.<h1><html>" % sum)
 
+def export_DanceUsers_csv(request):                                                                                                                              
+	response = HttpResponse(content_type='text/csv')                                                                                                              
+	response['Content-Disposition'] = 'attachment; filename="DM_DanceUsers.csv"'                                                                                                                                                                                                                                               
+	writer = csv.writer(response)                                                                                                                                 
+	writer.writerow(['Fname', 'Lname', 'Money Raised', 'Points'])                                                                                                                                                                                                                                                                        
+	listss = DanceUser.objects.all().values_list('first_name', 'last_name', 'mon_raised', 'points')                                                                            
+	for item in listss:                                                                                                                                    
+		writer.writerow(item)                                                                                                                                                                                                                                                                                             
+	return response
+
 class CustomAuthToken(ObtainAuthToken):
 
     def post(self, request, *args, **kwargs):
@@ -29,3 +41,5 @@ class CustomAuthToken(ObtainAuthToken):
             'user_id': user.pk,
             'email': user.email
         })
+   
+

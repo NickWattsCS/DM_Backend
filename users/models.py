@@ -28,6 +28,9 @@ class DanceUser(AbstractUser):
 	team = models.ForeignKey(Team, related_name="user_team", null = True, on_delete = models.CASCADE)
 	internal_team = models.CharField(max_length = 30, null = True) if position != "Dancer" else models.CharField(max_length = 30, default = "N/A")
 
+	class Meta():
+		ordering = ('first_name', 'last_name')
+
 	def __str__(self):
 		return str(self.first_name + " " + self.last_name)
 
