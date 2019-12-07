@@ -1,4 +1,6 @@
 import csv 
+from django.contrib import admin                                                                                                                              
+from import_export.admin import ImportExportModelAdmin 
 
 from django.http import HttpResponse
 from rest_framework import viewsets
@@ -22,3 +24,6 @@ def export_DanceGroups_csv(request):
 
     return response
 
+@admin.register(DanceGroup)                                                                                                                                   
+class ViewGroups(ImportExportModelAdmin):                                                                                                                         
+	pass
